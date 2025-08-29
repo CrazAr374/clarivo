@@ -117,7 +117,7 @@ const ContactPage = () => {
               <span className="text-gradient">Get In Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-neutral-light/80 max-w-4xl mx-auto leading-relaxed">
-              We'd love to hear from you. Reach out with questions, feedback, 
+              We&apos;d love to hear from you. Reach out with questions, feedback, 
               or partnership inquiries.
             </p>
           </motion.div>

@@ -92,7 +92,7 @@ const AboutPage = () => {
                 </p>
                 <p>
                   Our founders, coming from diverse backgrounds in AI, design, and data science, 
-                  shared a common vision: data analysis shouldn't require a PhD in computer science. 
+                  shared a common vision: data analysis shouldn&apos;t require a PhD in computer science. 
                   Every business professional deserves access to powerful analytics tools.
                 </p>
                 <p>
@@ -113,9 +113,11 @@ const AboutPage = () => {
               {/* Company Image */}
               <div className="glass-morphism rounded-2xl p-4 backdrop-blur-xl">
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src="/company-image.jpg"
                     alt="Clarivo team working on AI data analysis"
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       // Fallback to a gradient background if image doesn't exist

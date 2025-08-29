@@ -1,3 +1,5 @@
+import './globals.css'
+
 export const metadata = {
   title: 'Clarivo - AI-Powered Data Analysis Platform',
   description: 'Transform raw data into clear insights with Clarivo\'s AI-powered data analysis, visualization, and cleaning tools for everyone.',

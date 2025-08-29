@@ -3,6 +3,40 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
+// Animated counter hook
+const useCounter = (end: number, duration: number = 2000, isVisible: boolean = false) => {
+  const [count, setCount] = useState(0)
+
+    useEffect(() => {
+      if (!isVisible) return
+
+    let startTime: number
+    let animationFrame: number
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const progress = (timestamp - startTime) / duration
+
+      if (progress < 1) {
+        setCount(Math.floor(end * progress))
+        animationFrame = requestAnimationFrame(animate)
+      } else {
+        setCount(end)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame)
+      }
+    }
+  }, [end, duration, isVisible])
+
+  return count
+}
+
 const StatsShowcase = () => {
   const [isVisible, setIsVisible] = useState(false)
   
@@ -37,39 +71,7 @@ const StatsShowcase = () => {
     },
   ]
 
-  // Animated counter hook
-  const useCounter = (end: number, duration: number = 2000) => {
-    const [count, setCount] = useState(0)
 
-    useEffect(() => {
-      if (!isVisible) return
-
-      let startTime: number
-      let animationFrame: number
-
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp
-        const progress = (timestamp - startTime) / duration
-
-        if (progress < 1) {
-          setCount(Math.floor(end * progress))
-          animationFrame = requestAnimationFrame(animate)
-        } else {
-          setCount(end)
-        }
-      }
-
-      animationFrame = requestAnimationFrame(animate)
-
-      return () => {
-        if (animationFrame) {
-          cancelAnimationFrame(animationFrame)
-        }
-      }
-    }, [end, duration, isVisible])
-
-    return count
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -123,7 +125,7 @@ const StatsShowcase = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {stats.map((stat, index) => {
-            const count = useCounter(stat.value, 2000 + index * 200)
+            const count = useCounter(stat.value, 2000 + index * 200, isVisible)
             
             return (
               <motion.div

@@ -3,7 +3,6 @@
 import { useEffect } from 'react'
 import Navigation from './Navigation'
 import Footer from './Footer'
-import '../app/globals.css'
 
 interface LayoutProps {
   children: React.ReactNode

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -43,9 +44,11 @@ const Navigation = () => {
               whileHover={{ scale: 1.1 }}
               className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center"
             >
-              <img 
+              <Image 
                 src="/logo.jpg" 
                 alt="Clarivo Logo" 
+                width={40}
+                height={40}
                 className="w-full h-full object-contain"
               />
             </motion.div>

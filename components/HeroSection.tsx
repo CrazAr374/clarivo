@@ -279,7 +279,7 @@ const HeroSection = () => {
                   {/* Query Input */}
                   <div className="glass-morphism rounded-lg p-4">
                     <div className="text-xs text-neutral-light/60 mb-2">Ask Clarivo AI</div>
-                    <div className="text-sm text-neutral-light">"Show me sales trends by region over the last quarter"</div>
+                    <div className="text-sm text-neutral-light">&quot;Show me sales trends by region over the last quarter&quot;</div>
                   </div>
 
                   {/* Chart Visualization */}

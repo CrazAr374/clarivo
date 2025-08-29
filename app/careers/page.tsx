@@ -38,7 +38,7 @@ const CareersPage = () => {
     {
       icon: Globe,
       title: 'Impact',
-      description: 'We\'re committed to making a positive impact on how the world works with data.',
+      description: 'We&apos;re committed to making a positive impact on how the world works with data.',
       gradient: 'from-green-500 to-teal-600',
     },
   ]
@@ -185,7 +185,7 @@ const CareersPage = () => {
               Current <span className="text-gradient">Opportunities</span>
             </h2>
             <p className="text-xl text-neutral-light/70 max-w-3xl mx-auto">
-              We're always looking for talented individuals who share our passion 
+              We&apos;re always looking for talented individuals who share our passion 
               for making data analysis accessible to everyone.
             </p>
           </motion.div>
@@ -267,7 +267,7 @@ const CareersPage = () => {
                 >
                   atharva.rahate374@gmail.com
                 </a>
-                {' '}with a brief explanation of why you're excited to join our mission.
+                {' '}with a brief explanation of why you&apos;re excited to join our mission.
               </p>
               <div className="text-sm text-neutral-light/60">
                 We review all applications and will get back to you within a week.
@@ -332,11 +332,11 @@ const CareersPage = () => {
             className="glass-morphism rounded-3xl p-12 text-center backdrop-blur-xl"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Don't See Your Role?
+              Don&apos;t See Your Role?
             </h2>
             <p className="text-xl text-neutral-light/70 mb-8 max-w-2xl mx-auto">
-              We're always interested in connecting with talented individuals. 
-              Reach out and let's start a conversation.
+              We&apos;re always interested in connecting with talented individuals. 
+              Reach out and let&apos;s start a conversation.
             </p>
             <motion.a
               href="mailto:atharva.rahate374@gmail.com"

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail } from 'lucide-react'
 
@@ -40,9 +41,11 @@ const Footer = () => {
               >
                 <Link href="/" className="flex items-center space-x-3 mb-6">
                   <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
-                    <img 
+                    <Image 
                       src="/logo.jpg" 
                       alt="Clarivo Logo" 
+                      width={40}
+                      height={40}
                       className="w-full h-full object-contain"
                     />
                   </div>
