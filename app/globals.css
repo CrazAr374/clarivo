@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-neutral-dark text-neutral-light font-sans antialiased;
+    overflow-x: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-gradient-accent bg-clip-text text-transparent;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-primary text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105 relative overflow-hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full transition-transform duration-700;
+  }
+  
+  .btn-primary:hover::before {
+    @apply translate-x-full;
+  }
+  
+  .btn-secondary {
+    @apply glass-morphism text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-white/20 relative overflow-hidden;
+  }
+  
+  .btn-secondary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full transition-transform duration-700;
+  }
+  
+  .btn-secondary:hover::before {
+    @apply translate-x-full;
+  }
+  
+  .section-padding {
+    @apply px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .dashboard-glow {
+    box-shadow: 0 0 50px rgba(62, 146, 204, 0.15), 0 0 100px rgba(212, 49, 91, 0.1);
+  }
+}
