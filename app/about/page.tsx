@@ -4,8 +4,12 @@ import Layout from '../../components/Layout'
 import { motion } from 'framer-motion'
 import { Target, Users, Shield, Zap } from 'lucide-react'
 import Image from 'next/image'
+import { useWaitlist } from '../../hooks/useWaitlist'
+import WaitlistModal from '../../components/WaitlistModal'
 
 const AboutPage = () => {
+  const { isWaitlistOpen, openWaitlist, closeWaitlist } = useWaitlist()
+  
   const team = [
     {
       name: 'Atharva Pradip Rahate',
@@ -351,6 +355,7 @@ const AboutPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
+                onClick={openWaitlist}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary text-lg px-10 py-5"
@@ -358,6 +363,7 @@ const AboutPage = () => {
                 Start Free Trial
               </motion.button>
               <motion.button
+                onClick={openWaitlist}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-secondary text-lg px-10 py-5"
@@ -368,6 +374,9 @@ const AboutPage = () => {
           </motion.div>
         </div>
       </section>
+      
+      {/* Waitlist Modal */}
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={closeWaitlist} />
     </Layout>
   )
 }

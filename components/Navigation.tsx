@@ -5,10 +5,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useWaitlist } from '../hooks/useWaitlist'
+import WaitlistModal from './WaitlistModal'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { isWaitlistOpen, openWaitlist, closeWaitlist } = useWaitlist()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,9 +84,9 @@ const Navigation = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
-              <Link href="#" className="btn-primary">
+              <button onClick={openWaitlist} className="btn-primary">
                 Try Free
-              </Link>
+              </button>
             </motion.div>
           </div>
 
@@ -119,15 +122,18 @@ const Navigation = () => {
                   </Link>
                 ))}
                 <div className="pt-4">
-                  <Link href="#" className="btn-primary w-full text-center">
+                  <button onClick={() => { openWaitlist(); setIsOpen(false); }} className="btn-primary w-full text-center">
                     Try Free
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Waitlist Modal */}
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={closeWaitlist} />
     </motion.nav>
   )
 }

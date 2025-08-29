@@ -3,9 +3,12 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Play, ArrowRight } from 'lucide-react'
+import { useWaitlist } from '../hooks/useWaitlist'
+import WaitlistModal from './WaitlistModal'
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { isWaitlistOpen, openWaitlist, closeWaitlist } = useWaitlist()
 
   useEffect(() => {
     const initThreeJS = async () => {
@@ -180,6 +183,7 @@ const HeroSection = () => {
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
                 <motion.button
+                  onClick={openWaitlist}
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(212, 49, 91, 0.3)" }}
                   whileTap={{ scale: 0.95 }}
                   className="btn-primary flex items-center justify-center space-x-2 text-lg px-8 py-4"
@@ -375,6 +379,9 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </motion.div>
+      
+      {/* Waitlist Modal */}
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={closeWaitlist} />
     </section>
   )
 }

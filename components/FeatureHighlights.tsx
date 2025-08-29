@@ -2,8 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { Brain, Shield, BarChart3, Zap, Users, Award } from 'lucide-react'
+import { useWaitlist } from '../hooks/useWaitlist'
+import WaitlistModal from './WaitlistModal'
 
 const FeatureHighlights = () => {
+  const { isWaitlistOpen, openWaitlist, closeWaitlist } = useWaitlist()
+  
   const features = [
     {
       icon: Brain,
@@ -143,6 +147,7 @@ const FeatureHighlights = () => {
             Ready to transform your data workflow?
           </p>
           <motion.button
+            onClick={openWaitlist}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="btn-primary text-lg px-10 py-5"
@@ -150,6 +155,9 @@ const FeatureHighlights = () => {
             Start Your Free Trial
           </motion.button>
         </motion.div>
+        
+        {/* Waitlist Modal */}
+        <WaitlistModal isOpen={isWaitlistOpen} onClose={closeWaitlist} />
       </div>
     </section>
   )

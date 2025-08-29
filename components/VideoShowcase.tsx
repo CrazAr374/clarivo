@@ -3,10 +3,13 @@
 import { motion } from 'framer-motion'
 import { Play, Pause } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
+import { useWaitlist } from '../hooks/useWaitlist'
+import WaitlistModal from './WaitlistModal'
 
 const VideoShowcase = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const { isWaitlistOpen, openWaitlist, closeWaitlist } = useWaitlist()
 
   const handlePlayPause = () => {
     if (videoRef.current) {
@@ -218,6 +221,7 @@ const VideoShowcase = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
+              onClick={openWaitlist}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary"
@@ -225,6 +229,7 @@ const VideoShowcase = () => {
               Try Live Demo
             </motion.button>
             <motion.button
+              onClick={openWaitlist}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-secondary"
@@ -233,6 +238,9 @@ const VideoShowcase = () => {
             </motion.button>
           </div>
         </motion.div>
+        
+        {/* Waitlist Modal */}
+        <WaitlistModal isOpen={isWaitlistOpen} onClose={closeWaitlist} />
       </div>
     </section>
   )
