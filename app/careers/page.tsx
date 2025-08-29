@@ -137,7 +137,7 @@ const CareersPage = () => {
               Our <span className="text-gradient">Values</span>
             </h2>
             <p className="text-xl text-neutral-light/70 max-w-3xl mx-auto">
-              The principles that guide our work and shape the culture we're building together.
+              The principles that guide our work and shape the culture we&apos;re building together.
             </p>
           </motion.div>
 

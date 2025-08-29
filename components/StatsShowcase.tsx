@@ -7,8 +7,8 @@ import { motion } from 'framer-motion'
 const useCounter = (end: number, duration: number = 2000, isVisible: boolean = false) => {
   const [count, setCount] = useState(0)
 
-    useEffect(() => {
-      if (!isVisible) return
+  useEffect(() => {
+    if (!isVisible) return
 
     let startTime: number
     let animationFrame: number
@@ -35,6 +35,85 @@ const useCounter = (end: number, duration: number = 2000, isVisible: boolean = f
   }, [end, duration, isVisible])
 
   return count
+}
+
+// Individual stat component to avoid hook violations
+interface StatItemProps {
+  stat: {
+    value: number
+    suffix: string
+    label: string
+    description: string
+    color: string
+  }
+  index: number
+  isVisible: boolean
+}
+
+const StatItem = ({ stat, index, isVisible }: StatItemProps) => {
+  const count = useCounter(stat.value, 2000 + index * 200, isVisible)
+  
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.43, 0.13, 0.23, 0.96] as const,
+      },
+    },
+  }
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ 
+        scale: 1.05,
+        transition: { duration: 0.2 }
+      }}
+      className="group"
+    >
+      <div className="glass-morphism rounded-2xl p-8 text-center h-full transition-all duration-300 hover:bg-white/15">
+        {/* Animated Number */}
+        <div className="mb-4">
+          <div className={`text-5xl md:text-6xl font-bold ${stat.color} mb-2`}>
+            {count}{stat.suffix}
+          </div>
+          <div className="text-xl font-semibold text-neutral-light">
+            {stat.label}
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-neutral-light/70 text-sm leading-relaxed">
+          {stat.description}
+        </p>
+
+        {/* Animated Bar */}
+        <div className="mt-6">
+          <div className="w-full h-1 bg-neutral-light/10 rounded-full overflow-hidden">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              transition={{ 
+                duration: 1.5, 
+                delay: index * 0.2,
+                ease: 'easeOut'
+              }}
+              viewport={{ once: true }}
+              className={`h-full bg-gradient-to-r ${
+                index === 0 ? 'from-blue-400 to-blue-600' :
+                index === 1 ? 'from-green-400 to-green-600' :
+                index === 2 ? 'from-purple-400 to-purple-600' :
+                'from-pink-400 to-pink-600'
+              }`}
+            />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
 }
 
 const StatsShowcase = () => {
@@ -83,18 +162,6 @@ const StatsShowcase = () => {
     },
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  }
-
   return (
     <section className="py-24 section-padding">
       <div className="container-max">
@@ -124,60 +191,14 @@ const StatsShowcase = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {stats.map((stat, index) => {
-            const count = useCounter(stat.value, 2000 + index * 200, isVisible)
-            
-            return (
-              <motion.div
-                key={stat.label}
-                variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                className="group"
-              >
-                <div className="glass-morphism rounded-2xl p-8 text-center h-full transition-all duration-300 hover:bg-white/15">
-                  {/* Animated Number */}
-                  <div className="mb-4">
-                    <div className={`text-5xl md:text-6xl font-bold ${stat.color} mb-2`}>
-                      {count}{stat.suffix}
-                    </div>
-                    <div className="text-xl font-semibold text-neutral-light">
-                      {stat.label}
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-neutral-light/70 text-sm leading-relaxed">
-                    {stat.description}
-                  </p>
-
-                  {/* Animated Bar */}
-                  <div className="mt-6">
-                    <div className="w-full h-1 bg-neutral-light/10 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '100%' }}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: index * 0.2,
-                          ease: 'easeOut'
-                        }}
-                        viewport={{ once: true }}
-                        className={`h-full bg-gradient-to-r ${
-                          index === 0 ? 'from-blue-400 to-blue-600' :
-                          index === 1 ? 'from-green-400 to-green-600' :
-                          index === 2 ? 'from-purple-400 to-purple-600' :
-                          'from-pink-400 to-pink-600'
-                        }`}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
+          {stats.map((stat, index) => (
+            <StatItem 
+              key={stat.label}
+              stat={stat}
+              index={index}
+              isVisible={isVisible}
+            />
+          ))}
         </motion.div>
 
         {/* Additional Metrics */}

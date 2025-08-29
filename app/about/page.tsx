@@ -122,7 +122,10 @@ const AboutPage = () => {
                     onError={(e) => {
                       // Fallback to a gradient background if image doesn't exist
                       e.currentTarget.style.display = 'none';
-                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                      const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (nextElement) {
+                        nextElement.style.display = 'flex';
+                      }
                     }}
                   />
                   {/* Fallback gradient background */}
@@ -174,7 +177,7 @@ const AboutPage = () => {
               Our <span className="text-gradient">Values</span>
             </h2>
             <p className="text-xl text-neutral-light/70 max-w-3xl mx-auto">
-              The principles that guide everything we do and shape the future we're building.
+              The principles that guide everything we do and shape the future we&apos;re building.
             </p>
           </motion.div>
 

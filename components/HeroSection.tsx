@@ -170,7 +170,7 @@ const HeroSection = () => {
                 variants={textVariants}
                 className="text-xl md:text-2xl text-neutral-light/80 mb-8 leading-relaxed"
               >
-                <span className="text-accent-secondary font-semibold">Clarivo's AI-powered platform</span> transforms complex datasets into actionable insights. 
+                <span className="text-accent-secondary font-semibold">Clarivo&apos;s AI-powered platform</span> transforms complex datasets into actionable insights. 
                 <br className="hidden md:block" />
                 <span className="text-neutral-light/90">No coding expertise required</span> — just upload, ask, and discover.
               </motion.p>
