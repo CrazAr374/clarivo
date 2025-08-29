@@ -5,6 +5,11 @@ export const metadata = {
   description: 'Transform raw data into clear insights with Clarivo\'s AI-powered data analysis, visualization, and cleaning tools for everyone.',
   keywords: 'AI data analysis, data visualization, data cleaning, business intelligence, analytics platform',
   authors: [{ name: 'Clarivo Team' }],
+  icons: {
+    icon: '/icon.ico',
+    shortcut: '/icon.ico',
+    apple: '/icon.ico',
+  },
   openGraph: {
     title: 'Clarivo - AI-Powered Data Analysis Platform',
     description: 'Transform raw data into clear insights with AI-powered analytics',
