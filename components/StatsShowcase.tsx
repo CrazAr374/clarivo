@@ -210,15 +210,15 @@ const StatsShowcase = () => {
           className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           <div className="text-center">
-            <div className="text-3xl font-bold text-gradient mb-2">50,000+</div>
+            <div className="text-3xl font-bold text-gradient mb-2">3+</div>
             <div className="text-neutral-light/70">Active Users</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-gradient mb-2">1M+</div>
+            <div className="text-3xl font-bold text-gradient mb-2">12+</div>
             <div className="text-neutral-light/70">Datasets Analyzed</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-gradient mb-2">99.9%</div>
+            <div className="text-3xl font-bold text-gradient mb-2">100%</div>
             <div className="text-neutral-light/70">Uptime Reliability</div>
           </div>
         </motion.div>
