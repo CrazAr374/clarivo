@@ -158,7 +158,7 @@ const Footer = () => {
               © {new Date().getFullYear()} Clarivo. All rights reserved.
             </p>
             <p className="text-neutral-light/70 text-sm">
-              Made with ❤️ for data enthusiasts everywhere
+              Made with ❤️ by <a href="https://github.com/atharva-rahate" className="text-accent-secondary hover:text-accent transition-colors duration-300">Atharva Rahate</a>
             </p>
           </motion.div>
         </div>
