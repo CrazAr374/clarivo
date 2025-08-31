@@ -124,7 +124,7 @@ const ResearchPage = () => {
                     <Users className="text-accent-secondary" size={18} />
                     <div>
                       <p className="text-neutral-light font-medium">Authors</p>
-                      <p className="text-neutral-light/80 text-sm">Atharva Rahate, Sarthak Deshmukh</p>
+                      <p className="text-neutral-light/80 text-sm">Atharva Rahate, Sarthak Nandre</p>
                     </div>
                   </div>
                   
