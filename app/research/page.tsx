@@ -39,7 +39,7 @@ const ResearchPage = () => {
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-neutral-light/80 max-w-4xl mx-auto leading-relaxed">
-              Discover the technical foundations and innovative approaches behind Clarivo's 
+              Discover the technical foundations and innovative approaches behind Clarivo&apos;s 
               AI-powered data analysis platform.
             </p>
           </motion.div>
@@ -132,7 +132,7 @@ const ResearchPage = () => {
                     <Calendar className="text-accent-secondary" size={18} />
                     <div>
                       <p className="text-neutral-light font-medium">Publication</p>
-                      <p className="text-neutral-light/80 text-sm">2024</p>
+                      <p className="text-neutral-light/80 text-sm">2025</p>
                     </div>
                   </div>
                 </div>
