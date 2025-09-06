@@ -22,6 +22,16 @@ const AboutPage = () => {
       email: 'atharva.rahate374@gmail.com'
     },
     {
+      name: 'Anisha Nimish Lale',
+      role: 'CMO & Head of Marketing',
+      bio: 'Strategic marketing leader with expertise in brand positioning and digital growth. Drives customer engagement campaigns and data-driven insights.',
+      image: '/Anisha.jpg',
+      gradient: 'from-blue-500 to-purple-600',
+      linkedin: 'https://www.linkedin.com/in/anisha-lale-1011702b5/',
+      github: '#',
+      email: 'anishalale25@gmail.com'
+    },
+    {
       name: 'Sarthak Pravin Nandre',
       role: 'Co-founder - Research and Analysis',
       bio: 'Expert in data research methodologies and analytical frameworks. Drives innovation in data science solutions and strategic insights.',
@@ -243,7 +253,7 @@ const AboutPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
