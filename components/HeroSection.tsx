@@ -151,42 +151,42 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 section-padding w-full">
         <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-              className="text-center lg:text-left"
-            >
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto text-center"
+          >
+              <motion.div
+                variants={textVariants}
+                className="inline-flex items-center justify-center px-3 py-1.5 mb-4 rounded-full text-xs font-semibold tracking-wide glass-morphism text-neutral-light/80"
+              >
+                AI analysis for teams — fast, private, actionable
+              </motion.div>
               <motion.h1
                 variants={textVariants}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6"
               >
-                <span className="text-neutral-light">Unlock the Power</span>{' '}
-                <br />
-                <span className="text-neutral-light">of Your Data with</span>{' '}
+                <span className="text-neutral-light">Unlock Insights from Your Data with </span>
                 <span className="text-gradient">Clarivo</span>
               </motion.h1>
 
               <motion.p
                 variants={textVariants}
-                className="text-xl md:text-2xl text-neutral-light/80 mb-8 leading-relaxed"
+                className="text-lg md:text-xl text-neutral-light/80 mb-10 leading-relaxed max-w-3xl mx-auto"
               >
-                <span className="text-accent-secondary font-semibold">Clarivo&apos;s AI-powered platform</span> transforms complex datasets into actionable insights. 
-                <br className="hidden md:block" />
-                <span className="text-neutral-light/90">No coding expertise required</span> — just upload, ask, and discover.
+                Ask in plain English. Clarivo cleans, analyzes, and visualizes your spreadsheets in seconds—so you can move from data to decision without SQL or scripts.
               </motion.p>
 
               <motion.div
                 variants={textVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <motion.button
                   onClick={openWaitlist}
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(212, 49, 91, 0.3)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-primary flex items-center justify-center space-x-2 text-lg px-8 py-4"
+                  className="btn-primary flex items-center justify-center space-x-2 text-lg px-10 py-5 shadow-lg shadow-primary/20"
                 >
                   <span>Start Free Analysis</span>
                   <ArrowRight size={20} />
@@ -196,7 +196,7 @@ const HeroSection = () => {
                   href="#video-demo"
                   whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-secondary flex items-center justify-center space-x-2 text-lg px-8 py-4"
+                  className="btn-secondary flex items-center justify-center space-x-2 text-lg px-10 py-5 border border-white/15"
                 >
                   <Play size={20} />
                   <span>2-Min Demo</span>
@@ -206,157 +206,48 @@ const HeroSection = () => {
               {/* Trust Indicators */}
               <motion.div
                 variants={textVariants}
-                className="mt-8 flex flex-wrap items-center gap-6 justify-center lg:justify-start text-sm text-neutral-light/60"
+                className="mt-8 flex flex-wrap items-center gap-3 justify-center text-sm text-neutral-light/80"
               >
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-green-400 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✓</span>
-                  </div>
+                <div className="glass-morphism px-3 py-1.5 rounded-full flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center w-4 h-4 bg-green-400 text-[10px] leading-none text-white rounded-full">✓</span>
                   <span>No credit card required</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-green-400 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✓</span>
-                  </div>
+                <div className="glass-morphism px-3 py-1.5 rounded-full flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center w-4 h-4 bg-green-400 text-[10px] leading-none text-white rounded-full">✓</span>
                   <span>Data stays private</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-green-400 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✓</span>
-                  </div>
+                <div className="glass-morphism px-3 py-1.5 rounded-full flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center w-4 h-4 bg-green-400 text-[10px] leading-none text-white rounded-full">✓</span>
                   <span>Setup in 30 seconds</span>
                 </div>
               </motion.div>
 
               <motion.div
                 variants={textVariants}
-                className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 justify-center lg:justify-start"
+                className="mt-12 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8 justify-center [&>div:nth-child(n+2)]:md:border-l [&>div:nth-child(n+2)]:md:border-white/10 [&>div:nth-child(n+2)]:md:pl-8"
               >
-                <div className="text-center lg:text-left">
+                <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">100MB+</div>
                   <div className="text-sm text-neutral-light/60">File Size Support</div>
                   <div className="text-xs text-accent-secondary mt-1">Excel, CSV, JSON</div>
                 </div>
-                <div className="text-center lg:text-left">
+                <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">15+</div>
                   <div className="text-sm text-neutral-light/60">Visualization Types</div>
                   <div className="text-xs text-accent-secondary mt-1">Auto-generated</div>
                 </div>
-                <div className="text-center lg:text-left">
+                <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">95%</div>
                   <div className="text-sm text-neutral-light/60">AI Accuracy</div>
                   <div className="text-xs text-accent-secondary mt-1">Pattern Detection</div>
                 </div>
-                <div className="text-center lg:text-left">
+                <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-gradient mb-1">0%</div>
                   <div className="text-sm text-neutral-light/60">Data Shared</div>
                   <div className="text-xs text-accent-secondary mt-1">100% Private</div>
                 </div>
               </motion.div>
             </motion.div>
-
-            {/* Right Content - Dashboard Preview */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="relative"
-            >
-              <div className="glass-morphism rounded-2xl p-6 backdrop-blur-xl relative overflow-hidden dashboard-glow">
-                {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">C</span>
-                    </div>
-                    <span className="text-neutral-light font-semibold">Clarivo Dashboard</span>
-                  </div>
-                  <div className="flex space-x-1">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Main Content Area */}
-                <div className="space-y-4">
-                  {/* Query Input */}
-                  <div className="glass-morphism rounded-lg p-4">
-                    <div className="text-xs text-neutral-light/60 mb-2">Ask Clarivo AI</div>
-                    <div className="text-sm text-neutral-light">&quot;Show me sales trends by region over the last quarter&quot;</div>
-                  </div>
-
-                  {/* Chart Visualization */}
-                  <div className="glass-morphism rounded-lg p-4 h-40 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-secondary/20 to-accent-secondary/20 rounded-lg">
-                      {/* Animated Chart Bars */}
-                      <div className="flex items-end justify-between h-full p-4">
-                        {[60, 80, 45, 90, 70, 95, 55].map((height, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ height: 0 }}
-                            animate={{ height: `${height}%` }}
-                            transition={{ duration: 1, delay: 1 + i * 0.1 }}
-                            className={`w-6 rounded-t bg-gradient-to-t ${
-                              i % 3 === 0 ? 'from-accent to-accent/60' :
-                              i % 3 === 1 ? 'from-secondary to-secondary/60' :
-                              'from-accent-secondary to-accent-secondary/60'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="absolute bottom-2 left-4 text-xs text-neutral-light/70">
-                      Q4 Sales Performance
-                    </div>
-                  </div>
-
-                  {/* AI Insights */}
-                  <div className="space-y-2">
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 1.8 }}
-                      className="glass-morphism rounded-lg p-3 flex items-center space-x-3"
-                    >
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-sm text-neutral-light">North region shows 23% growth</span>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 2.0 }}
-                      className="glass-morphism rounded-lg p-3 flex items-center space-x-3"
-                    >
-                      <div className="w-2 h-2 bg-accent-secondary rounded-full animate-pulse"></div>
-                      <span className="text-sm text-neutral-light">Best performing product: Widget Pro</span>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 2.2 }}
-                      className="glass-morphism rounded-lg p-3 flex items-center space-x-3"
-                    >
-                      <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                      <span className="text-sm text-neutral-light">Forecast: +15% next quarter</span>
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  animate={{ y: [-5, 5, -5] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-accent rounded-full opacity-20 blur-sm"
-                />
-                <motion.div
-                  animate={{ y: [5, -5, 5] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-primary rounded-full opacity-15 blur-sm"
-                />
-              </div>
-            </motion.div>
-          </div>
         </div>
       </div>
 
